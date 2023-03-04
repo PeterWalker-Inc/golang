@@ -1,15 +1,17 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
-	"os"
-	"strings"
-	"strconv"
+	"fmt"
 	"math"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
+	hello := "Hello"
+	fmt.Printf("%v", hello)
 	reader := bufio.NewReader(os.Stdin)
 	fmt.Print("Enter num 1: ")
 	input1, _ := reader.ReadString('\n')
@@ -24,6 +26,6 @@ func main() {
 		panic(err)
 	}
 	sum := float64(val1) + float64(val2)
-	sum = math.Round(sum * 100) / 100
+	sum = math.Round(sum*100) / 100
 	fmt.Printf("The sum is %v", sum)
 }
