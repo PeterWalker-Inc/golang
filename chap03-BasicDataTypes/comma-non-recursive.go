@@ -6,19 +6,31 @@ import (
 )
 
 func comma(s string) string {
-	var buf bytes.Buffer
-	wordcount := 1
-	for _, v := range s {
-		wordcount++
-		if wordcount % 3 == 0 {
-			buf.WriteRune(',') // character writing
-		}
-		buf.WriteRune(v) // character writing
+	n := len(s)
+	if n <= 3 {
+		return s
 	}
+
+	var buf bytes.Buffer
+
+	// Write first group of numbers
+	i := n % 3
+	if i == 0 {
+		i = 3
+	}
+	buf.WriteString(s[:i])
+
+	// Write the rest
+	for j := i + 3; j < n; {
+		buf.WriteString("," + s[i:j])
+		i, j = j, j+3
+	}
+	buf.WriteString("," + s[i:])
 	return buf.String()
 }
 
 func main() {
-	num := "1234567890"
+	num := "12345678904124254235345234"
+	fmt.Println(num)
 	fmt.Println(comma(num))
 }
