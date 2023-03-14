@@ -6,10 +6,10 @@ import (
 )
 
 func main() {
-	fmt.Println(printints([]int{1,2,3}))
+	fmt.Println(intToString([]int{1,2,3}))
 }
 
-func printints(values []int) string {
+func intToString(values []int) string {
 	var buf bytes.Buffer
 	buf.WriteByte('[')
 	for i, v := range(values) {
